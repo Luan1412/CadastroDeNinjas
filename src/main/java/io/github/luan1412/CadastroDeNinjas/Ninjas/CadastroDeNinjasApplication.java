@@ -1,4 +1,4 @@
-package io.github.luan1412.CadastroDeNinjas;
+package io.github.luan1412.CadastroDeNinjas.Ninjas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

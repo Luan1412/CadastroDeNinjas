@@ -1,9 +1,16 @@
-package io.github.luan1412.CadastroDeNinjas;
+package io.github.luan1412.CadastroDeNinjas.Ninjas;
 
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
+
+import io.github.luan1412.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 //essa anotação transforma uma classe em tabela no banco de dados
@@ -19,6 +26,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //@ManyToOne 1 ninja pode ter só 1 missão
+    @ManyToOne()
+    @JoinColumn(name = "missoes_id") //FK Foreign Key ou Chave estrangeira
+    private MissoesModel missoes;
      
     public NinjaModel() {
     }
