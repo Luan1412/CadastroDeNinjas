@@ -27,4 +27,12 @@ public class MissoesService {
         return this.missoesRepository.findById(id);
     }
 
+    public MissoesModel updateMissao(Long id, MissoesModel missao){
+        return this.missoesRepository.save(missao);
+    }
+
+    public void deleteMissao(Long id){
+        this.missoesRepository.deleteById(id);
+    }
+
 }

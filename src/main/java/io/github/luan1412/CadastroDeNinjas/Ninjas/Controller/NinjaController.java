@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +33,7 @@ public class NinjaController {
     public List<NinjaModel>readNinjas(){
         return this.ninjaService.readNinja();
     }
-    
+
      @GetMapping("/{id}")
      public ResponseEntity<NinjaModel> readNinjas(@PathVariable Long id){
         Optional <NinjaModel> ninjaOptional = this.ninjaService.readNinjaById(id);
@@ -43,4 +45,18 @@ public class NinjaController {
         }
     }
 
+    @PutMapping("/{id}")
+    public NinjaModel updateNinja(@PathVariable Long id, @RequestBody NinjaModel ninja){
+
+        ninja.setId(id);
+        return this.ninjaService.updateNinja(id, ninja);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteNinja(@PathVariable Long id){
+        this.ninjaService.deleteNinja(id);
+        return ResponseEntity.ok().build();
+    }
+
+    
 }

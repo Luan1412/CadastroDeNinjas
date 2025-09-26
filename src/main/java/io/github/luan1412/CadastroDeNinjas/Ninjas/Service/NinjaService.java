@@ -31,5 +31,14 @@ public class NinjaService {
        return this.NinjaRepository.findById(id);
     }
 
+    public NinjaModel updateNinja(Long id, NinjaModel ninja){
+
+        return this.NinjaRepository.save(ninja);
+    }
+
+    public void deleteNinja(Long id){
+        this.NinjaRepository.deleteById(id);
+    }
+
 
 }
