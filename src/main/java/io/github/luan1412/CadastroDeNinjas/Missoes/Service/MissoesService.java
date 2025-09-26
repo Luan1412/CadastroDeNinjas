@@ -1,5 +1,8 @@
 package io.github.luan1412.CadastroDeNinjas.Missoes.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +18,13 @@ public class MissoesService {
     public MissoesModel createMissoes(MissoesModel missao){
         return this.missoesRepository.save(missao);
     }
+
+    public List<MissoesModel>readMissoes(){
+        return this.missoesRepository.findAll();
+    }
+
+    public Optional<MissoesModel>readMissaoById(Long id){
+        return this.missoesRepository.findById(id);
+    }
+
 }
